@@ -25,6 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   };
 
   bool _rememberme = true;
+  bool _passwordShow = false;
 
 //------------------------------------------------------------------
 //------------------------- initState ------------------------------
@@ -61,30 +62,40 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontSize: 28,
                             fontWeight: FontWeight.bold)),
                     const SizedBox(
-                      height: 5,
+                      height: 15,
                     ),
                     Form(
                       key: loginForm.formKey,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      autovalidateMode: AutovalidateMode.disabled,
                       child: Column(
                         children: [
                           CustomInputField(
-                            prefixicon: Icons.person,
+                            prefixIcon: Icons.person,
                             labelText: "Usuario...",
                             hintText: "Usuario",
                             formProperty: 'usuario',
                             formValues: formValues,
+                            counterText: 'Mínimo 6 caracteres',
+                            validatorText:
+                                "Escribió sólo ${formValues["usuario"]!.length.toString()} caracteres",
                           ),
                           const SizedBox(
                             height: 10,
                           ),
                           CustomInputField(
-                            prefixicon: Icons.lock,
-                            isPassword: true,
+                            prefixIcon: Icons.lock,
+                            suffixIcon: _passwordShow
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            isPassword: !_passwordShow,
                             labelText: "Contraseña...",
                             hintText: "Contraseña",
                             formProperty: 'password',
                             formValues: formValues,
+                            counterText: 'Mínimo 6 caracteres',
+                            validatorText:
+                                "Escribió sólo ${formValues["password"]!.length.toString()} caracteres",
+                            suffixIconFn: setPasswordShow,
                           ),
                           const SizedBox(
                             height: 0,
@@ -137,14 +148,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                           context, 'home');
                                     },
                               child: Container(
+                                width: double.infinity,
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 80, vertical: 15),
-                                child: Text(
-                                    loginForm.isLoading
-                                        ? 'Espere...'
-                                        : 'Ingresar',
-                                    style:
-                                        const TextStyle(color: Colors.white)),
+                                    horizontal: 0, vertical: 15),
+                                child: Center(
+                                  child: Text(
+                                      loginForm.isLoading
+                                          ? 'Espere...'
+                                          : 'Ingresar',
+                                      style:
+                                          const TextStyle(color: Colors.white)),
+                                ),
                               )),
                         ],
                       ),
@@ -157,5 +171,11 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  //------------------------ Método increase -------------------------
+  void setPasswordShow() {
+    _passwordShow = !_passwordShow;
+    setState(() {});
   }
 }

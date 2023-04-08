@@ -48,7 +48,7 @@ class AppTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         primary: primary,
-        shape: const StadiumBorder(),
+        //shape: const StadiumBorder(),
         elevation: 0,
       ),
     ),
