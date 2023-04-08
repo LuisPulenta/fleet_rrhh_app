@@ -1,10 +1,25 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const Color primary = Color.fromARGB(255, 2, 72, 149);
-  static const Color secondary = Color.fromARGB(255, 130, 174, 215);
+//---------------------------------------------------------------
+//---------------------- Colores --------------------------------
+//---------------------------------------------------------------
 
-//*************** LIGHT THEME ********************************
+  static const Color color1 = Color.fromARGB(255, 7, 72, 144);
+  static const Color color2 = Color.fromARGB(255, 241, 17, 14);
+  static const Color color3 = Color.fromARGB(255, 113, 142, 176);
+  static const Color color4 = Color.fromARGB(255, 11, 44, 91);
+  static const Color color5 = Color.fromARGB(255, 87, 108, 139);
+  static const Color color6 = Color.fromARGB(255, 9, 28, 62);
+  static const Color color7 = Color.fromARGB(255, 107, 155, 205);
+  static const Color color8 = Color.fromARGB(255, 130, 174, 215);
+
+  static const Color primary = color1;
+  static const Color secondary = color3;
+
+//---------------------------------------------------------------
+//---------------------- lightTheme -----------------------------
+//---------------------------------------------------------------
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
     //Color primario
@@ -35,7 +50,6 @@ class AppTheme {
         primary: primary,
         shape: const StadiumBorder(),
         elevation: 0,
-        //minimumSize: Size(170, 50),
       ),
     ),
 
@@ -65,16 +79,4 @@ class AppTheme {
       ),
     ),
   );
-
-  //*************** DARK THEME ********************************
-  static final ThemeData darkTheme = ThemeData.dark().copyWith(
-      //Color primario
-      primaryColor: primary,
-      //AppBar Theme
-      appBarTheme: const AppBarTheme(
-        color: primary,
-        elevation: 0,
-        centerTitle: true,
-      ),
-      scaffoldBackgroundColor: Colors.black);
 }
