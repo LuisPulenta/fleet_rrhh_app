@@ -23,6 +23,16 @@ class AppTheme {
 //---------------------------------------------------------------
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
+    textTheme: ThemeData.light().textTheme.apply(
+          fontFamily: "GloriaHallelujah-Regular",
+        ),
+    primaryTextTheme: ThemeData.light().textTheme.apply(
+          fontFamily: "GloriaHallelujah-Regular",
+        ),
+    accentTextTheme: ThemeData.light().textTheme.apply(
+          fontFamily: "GloriaHallelujah-Regular",
+        ),
+
     //Color primario
     primaryColor: primary,
 
@@ -57,7 +67,7 @@ class AppTheme {
     //InputDecorationTheme
     inputDecorationTheme: const InputDecorationTheme(
       floatingLabelStyle: TextStyle(color: primary, backgroundColor: secondary),
-      labelStyle: TextStyle(color: AppTheme.color3),
+      labelStyle: TextStyle(color: AppTheme.color7),
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: AppTheme.color1),
         borderRadius: BorderRadius.only(

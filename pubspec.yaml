@@ -93,6 +93,20 @@ flutter:
   assets:
     - assets/
 
+  fonts:
+    - family: GloriaHallelujah-Regular
+      fonts:
+        - asset: fonts/GloriaHallelujah-Regular.ttf
+
+    - family: Orbitron
+      fonts:
+        - asset: fonts/Orbitron-Black.ttf
+        - asset: fonts/Orbitron-Bold.ttf
+        - asset: fonts/Orbitron-ExtraBold.ttf
+        - asset: fonts/Orbitron-Medium.ttf
+        - asset: fonts/Orbitron-Regular.ttf
+        - asset: fonts/Orbitron-SemiBold.ttf
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
