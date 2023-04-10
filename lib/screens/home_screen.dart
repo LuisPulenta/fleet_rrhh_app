@@ -1,5 +1,6 @@
 import 'package:fleet_rrhh_app/providers/providers.dart';
 import 'package:fleet_rrhh_app/themes/themes.dart';
+import 'package:fleet_rrhh_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -34,13 +35,33 @@ class _HomeScreenState extends State<HomeScreen> {
     final appInfoProvider =
         Provider.of<AppInfoProvider>(context, listen: false);
 
+    TextStyle textStyle = const TextStyle(
+        color: AppTheme.color1, fontSize: 28, fontWeight: FontWeight.bold);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Fleet RRHH App'),
         centerTitle: true,
       ),
       body: Center(
-        child: Text('Bienvenido/a ' + appInfoProvider.usuario!.fullName),
+        child: Column(
+          children: [
+            const HeaderImage(),
+            const SizedBox(
+              height: 15,
+            ),
+            const Divider(
+              color: AppTheme.color1,
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Text('Bienvenido/a', style: textStyle),
+            Text(
+              appInfoProvider.usuario!.fullName,
+              style: textStyle,
+            ),
+          ],
+        ),
       ),
       drawer: _getMenu(),
     );
