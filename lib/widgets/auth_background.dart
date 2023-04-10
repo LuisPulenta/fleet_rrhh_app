@@ -48,7 +48,7 @@ class _HeaderImage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Image.asset(
-                "assets/logo2.png",
+                "assets/logo.png",
                 fit: BoxFit.contain,
               ),
             )),

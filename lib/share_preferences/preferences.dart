@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class Preferences {
   static late SharedPreferences _prefs;
 
-  static String _usuario = '';
+  static String _userBody = '';
   static String _password = '';
   static bool _rememberme = true;
 
@@ -11,13 +11,13 @@ class Preferences {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  static String get usuario {
-    return _prefs.getString('usuario') ?? _usuario;
+  static String get userBody {
+    return _prefs.getString('userBody') ?? _userBody;
   }
 
-  static set usuario(String usuario) {
-    _usuario = usuario;
-    _prefs.setString('usuario', usuario);
+  static set userBody(String userBody) {
+    _userBody = userBody;
+    _prefs.setString('userBody', userBody);
   }
 
   static String get password {

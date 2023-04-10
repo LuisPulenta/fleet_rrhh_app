@@ -1,3 +1,7 @@
+import 'dart:convert';
+
+import 'package:fleet_rrhh_app/models/models.dart';
+import 'package:fleet_rrhh_app/services/notifications_service.dart';
 import 'package:fleet_rrhh_app/share_preferences/preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,7 +19,6 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AppInfoProvider()),
-        ChangeNotifierProvider(create: (_) => LoginFormProvider()),
       ],
       child: const MyApp(),
     ),
@@ -68,11 +71,12 @@ class _MyAppState extends State<MyApp> {
       home: _isLoading
           ? const WaitScreen()
           : _showLoginPage
-              ? const LoginScreen()
+              ? LoginScreen()
               : const HomeScreen(),
+      scaffoldMessengerKey: NotificationsService.messegerKey,
       theme: AppTheme.lightTheme,
       routes: {
-        'login': (_) => const LoginScreen(),
+        'login': (_) => LoginScreen(),
         'home': (_) => const HomeScreen(),
         'wait': (_) => const WaitScreen(),
       },
@@ -85,20 +89,21 @@ class _MyAppState extends State<MyApp> {
 
   void _getHome() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    final appInfoProvider =
+        Provider.of<AppInfoProvider>(context, listen: false);
 
     bool isRemembered = prefs.getBool('rememberme') ?? false;
 
     if (isRemembered) {
-      String? usuario = prefs.getString('usuario');
-      String? password = prefs.getString('password');
+      User usuario = User.fromJson(jsonDecode(prefs.getString('userBody')!));
+      appInfoProvider.usuario = usuario;
 
-      if (usuario != "" && password != "") {
+      if (usuario.login != '' && usuario.contrasena != '') {
         _showLoginPage = false;
       } else {
         _showLoginPage = true;
       }
     }
-
     _isLoading = false;
     setState(() {});
   }

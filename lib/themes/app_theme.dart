@@ -1,3 +1,4 @@
+import 'package:fleet_rrhh_app/themes/themes.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {
@@ -56,22 +57,23 @@ class AppTheme {
     //InputDecorationTheme
     inputDecorationTheme: const InputDecorationTheme(
       floatingLabelStyle: TextStyle(color: primary, backgroundColor: secondary),
+      labelStyle: TextStyle(color: AppTheme.color3),
       enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: primary),
+        borderSide: BorderSide(color: AppTheme.color1),
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(10),
           topRight: Radius.circular(10),
         ),
       ),
       focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: primary),
+        borderSide: BorderSide(color: AppTheme.color1),
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(10),
           topRight: Radius.circular(10),
         ),
       ),
       border: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.grey),
+        borderSide: BorderSide(color: AppTheme.color3),
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(10),
           topRight: Radius.circular(10),
