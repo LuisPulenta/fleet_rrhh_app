@@ -24,13 +24,13 @@ class AppTheme {
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
     textTheme: ThemeData.light().textTheme.apply(
-          fontFamily: "GloriaHallelujah-Regular",
+          fontFamily: "PTSansNarrow-Regular",
         ),
     primaryTextTheme: ThemeData.light().textTheme.apply(
-          fontFamily: "GloriaHallelujah-Regular",
+          fontFamily: "PTSansNarrow-Regular",
         ),
     accentTextTheme: ThemeData.light().textTheme.apply(
-          fontFamily: "GloriaHallelujah-Regular",
+          fontFamily: "PTSansNarrow-Regular",
         ),
 
     //Color primario

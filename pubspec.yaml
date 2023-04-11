@@ -98,6 +98,11 @@ flutter:
       fonts:
         - asset: fonts/GloriaHallelujah-Regular.ttf
 
+    - family: PTSansNarrow-Regular
+      fonts:
+        - asset: fonts/PTSansNarrow-Regular.ttf
+        - asset: fonts/PTSansNarrow-Bold.ttf
+
     - family: Orbitron
       fonts:
         - asset: fonts/Orbitron-Black.ttf
